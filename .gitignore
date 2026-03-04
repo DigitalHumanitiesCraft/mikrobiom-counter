@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# TWA build (contains keystore + passwords)
+twa/
+
+# Claude Code
+.claude/
