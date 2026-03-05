@@ -11,7 +11,7 @@ Details zu Zählweise, was zählt/nicht zählt, und Design-Entscheidungen: siehe
 ## Features
 
 - **Spracheingabe** per Web Speech API (de-DE)
-- **Manuelle Eingabe** mit Search-as-you-type, 284 Pflanzen in 10 Kategorien
+- **Manuelle Eingabe** mit Search-as-you-type, 276 Pflanzen in 10 Kategorien
 - **Fuzzy Matching** für Plurale, Umlaute, regionale Varianten (Paradeiser, Erdäpfel, ...)
 - **Glossar** erklärt was zählt und was nicht, mit Verweis auf die Originalstudie
 - **Wöchentlicher Counter** mit Fortschrittsring
@@ -56,3 +56,7 @@ npm run build && npx vite preview --host
 - **Voice Input braucht Internet.** Chrome sendet Audio an Google-Server. Offline nur manuelle Eingabe.
 - **Nur Chrome Android.** Safari iOS PWA unterstützt SpeechRecognition nicht.
 - **Kein Cloud-Backup.** Daten nur lokal. Export-Funktion nutzen!
+
+## Lizenz
+
+AGPL-3.0 — siehe [LICENSE](LICENSE).
