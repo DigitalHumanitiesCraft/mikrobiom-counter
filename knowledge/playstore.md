@@ -31,21 +31,21 @@ Mikrobiom Counter PWA als Android App im Google Play Store veröffentlichen via 
 
 ### PWA-Readiness (im App-Repo)
 
-- [ ] PWA Icons generieren: `pwa-192x192.png`, `pwa-512x512.png` (fehlen aktuell!)
-- [ ] Maskable Icon erstellen (Safe Zone beachten: 80% des Icons)
-- [ ] `package.json` Version auf `1.0.0` setzen
-- [ ] `vite.config.ts`: `scope: '/mikrobiom-counter/'` im Manifest ergänzen (fehlt aktuell, nötig für TWA)
-- [ ] Lighthouse Audit: Score >= 80 (Pflicht für TWA)
-- [ ] Offline-Funktionalität verifizieren
-- [ ] Manifest vollständig (name, short_name, icons, start_url, display, scope)
+- [x] PWA Icons generieren: `pwa-192x192.png`, `pwa-512x512.png`
+- [x] Maskable Icon erstellen (Safe Zone beachten: 80% des Icons)
+- [x] `package.json` Version auf `1.0.0` setzen
+- [x] `vite.config.ts`: `scope: '/mikrobiom-counter/'` im Manifest ergänzen
+- [x] Lighthouse Audit: Score >= 80
+- [x] Offline-Funktionalität verifiziert
+- [x] Manifest vollständig (name, short_name, icons, start_url, display, scope)
 - [ ] Web Speech API in TWA testen (Mikrofon-Zugriff)
 
 Base-Path `/mikrobiom-counter/` ist bereits korrekt gesetzt in `vite.config.ts`.
 
 ### Play Store Account
 
-- [ ] Google Play Developer Account erstellen ($25 Einmalgebühr)
-- [ ] Account-Verifizierung abschließen (**kann Tage bis Wochen dauern** — frühzeitig starten!)
+- [x] Google Play Developer Account erstellt ($25 Einmalgebühr)
+- [x] Account-Verifizierung abgeschlossen
 
 ### Bubblewrap Setup
 
@@ -109,16 +109,18 @@ App Signing Key SHA-256: Play Console → Release → Setup → App signing → 
 
 | Asset | Spezifikation | Status |
 |-------|--------------|--------|
-| App-Icon | 512x512 PNG, 32-bit, kein Alpha | Zu erstellen |
-| Feature Graphic | 1024x500 PNG/JPG | Zu erstellen |
-| Phone Screenshots | Min. 2, empf. 4-8, 16:9 oder 9:16 | Zu erstellen |
-| Kurzbeschreibung | Max. 80 Zeichen | Entwurf: "Zähle 30 Pflanzen pro Woche für ein gesundes Darmmikrobiom" |
-| Vollbeschreibung | Max. 4000 Zeichen | Zu schreiben |
-| Datenschutzerklärung | URL zu einer Webseite | Zu erstellen (auf dhcraft.org) |
-| App-Kategorie | Health & Fitness | Siehe Abschnitt "Play Store Policies" |
-| Content Rating | IARC Fragebogen ausfüllen | — |
-| Zielgruppe | **Nicht für Kinder** | Empfohlen: 18+ deklarieren (vermeidet COPPA) |
-| Health Apps Declaration | Pflicht-Formular seit Jan 2026 | Siehe Abschnitt "Play Store Policies" |
+| App-Icon | 512x512 PNG, 32-bit, kein Alpha | ✅ `public/pwa-512x512.png` |
+| Feature Graphic | 1024x500 PNG/JPG | ✅ `store/feature-graphic-1024x500.png` |
+| Phone Screenshots | Min. 4, 1080px+ pro Seite, 9:16 | ✅ 5 Screenshots in `store/` |
+| 7" Tablet Screenshots | 16:9 oder 9:16, 320-3840px | ✅ 4 Screenshots in `store/` |
+| 10" Tablet Screenshots | 16:9 oder 9:16, 320-3840px | ✅ 4 Screenshots in `store/` |
+| Kurzbeschreibung | Max. 80 Zeichen | ✅ in `store/listing.md` |
+| Vollbeschreibung | Max. 4000 Zeichen | ✅ in `store/listing.md` |
+| Datenschutzerklärung | URL zu einer Webseite | ✅ `store/datenschutz.md` → dhcraft.org |
+| App-Kategorie | Health & Fitness | ✅ |
+| Content Rating | IARC Fragebogen ausfüllen | ✅ |
+| Zielgruppe | **Nicht für Kinder** | ✅ |
+| Health Apps Declaration | Pflicht-Formular seit Jan 2026 | ✅ |
 
 ## Package Name
 
@@ -133,33 +135,35 @@ App Signing Key SHA-256: Play Console → Release → Setup → App signing → 
 
 ## Deployment-Schritte (Reihenfolge)
 
-### Phase A: PWA vorbereiten
-1. Icons generieren (PNG aus bestehendem SVG-Design)
-2. Manifest: `scope` Feld ergänzen
-3. Version auf 1.0.0 setzen
-4. Repo in DigitalHumanitiesCraft Org transferieren
-5. GitHub Actions für Deploy auf dhcraft.org anpassen
-6. `.nojekyll` Datei im Root-Repo sicherstellen (für `.well-known/`)
-7. Lighthouse Audit bestehen (>= 80)
+### Phase A: PWA vorbereiten ✅
+1. ✅ Icons generieren (PNG aus bestehendem SVG-Design)
+2. ✅ Manifest: `scope` Feld ergänzen
+3. ✅ Version auf 1.0.0 setzen
+4. ✅ Repo in DigitalHumanitiesCraft Org transferieren
+5. ✅ GitHub Actions für Deploy auf dhcraft.org anpassen
+6. ✅ `.nojekyll` Datei im Root-Repo sicherstellen (für `.well-known/`)
+7. ✅ Lighthouse Audit bestehen (>= 80)
 
-### Phase B: TWA bauen
-8. Bubblewrap CLI installieren (benötigt JDK + Android SDK)
-9. Upload Keystore generieren
-10. `bubblewrap init --manifest https://dhcraft.org/mikrobiom-counter/manifest.webmanifest`
-11. `bubblewrap build` → generiert AAB (Android App Bundle)
+### Phase B: TWA bauen ✅
+8. ✅ Bubblewrap CLI installieren (benötigt JDK + Android SDK)
+9. ✅ Upload Keystore generieren
+10. ✅ `bubblewrap init --manifest https://dhcraft.org/mikrobiom-counter/manifest.webmanifest`
+11. ✅ `bubblewrap build` → AAB liegt in `twa/app/build/outputs/bundle/release/app-release.aab`
 
 ### Phase C: Play Store
-12. Developer Account erstellen + verifizieren (FRÜHZEITIG — dauert!)
-13. App erstellen → App Signing Key SHA-256 aus Play Console holen
-14. Digital Asset Links (`assetlinks.json`) mit BEIDEN Fingerprints in Root-Repo deployen
-15. TWA Fullscreen verifizieren (kein URL-Bar?)
-16. Store Listing erstellen (Texte, Screenshots, Feature Graphic)
-17. Datenschutzerklärung erstellen + verlinken
-18. Health Apps Declaration ausfüllen (Pflicht seit Jan 2026)
-19. Content Rating ausfüllen (IARC)
-20. Zielgruppe: "Nicht für Kinder" deklarieren
-21. AAB hochladen → Internal Testing Track
-22. Testen → dann Production Release
+12. ✅ Developer Account erstellt + verifiziert
+13. ✅ App erstellt → App Signing Key SHA-256 aus Play Console geholt
+14. ✅ Digital Asset Links (`assetlinks.json`) mit BEIDEN Fingerprints in Root-Repo deployed
+15. ✅ Store Listing erstellt (Texte, Screenshots, Feature Graphic)
+16. ✅ Datenschutzerklärung erstellt + verlinkt
+17. ✅ Health Apps Declaration ausgefüllt
+18. ✅ Content Rating ausgefüllt (IARC)
+19. ✅ Zielgruppe: "Nicht für Kinder" deklariert
+20. ✅ Länder/Regionen ausgewählt
+21. ⬜ AAB hochladen → Production Release erstellen
+22. ⬜ Release zur Überprüfung an Google senden
+23. ⬜ TWA Fullscreen verifizieren nach Veröffentlichung (kein URL-Bar?)
+24. ⬜ Web Speech API in TWA testen auf echtem Gerät
 
 ### Timeline-Erwartung
 - Phase A: 1-2 Tage (größtenteils automatisierbar)

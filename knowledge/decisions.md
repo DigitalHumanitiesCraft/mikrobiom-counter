@@ -14,7 +14,7 @@
 
 ## D2: Feste Pflanzenliste statt LLM-Interpretation
 
-**Entscheidung:** Hardcoded Liste mit 284 Pflanzen + Aliasen. Kein LLM für die Interpretation von Spracheingaben.
+**Entscheidung:** Hardcoded Liste mit 276 Pflanzen + Aliasen. Kein LLM für die Interpretation von Spracheingaben.
 
 **Begründung:**
 - **Determinismus:** Gleiche Eingabe = gleiches Ergebnis. Immer.

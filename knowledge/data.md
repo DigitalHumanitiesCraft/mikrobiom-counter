@@ -4,18 +4,18 @@
 
 | Kategorie | ID | Einträge | Beispiele |
 |-----------|-----|---------|-----------|
-| Gemüse | `gemuese` | 65 | Tomate, Karotte, Nori, Lotuswurzel |
-| Obst | `obst` | 56 | Apfel, Avocado, Olive, Ringlotte |
+| Gemüse | `gemuese` | 61 | Tomate, Karotte, Nori, Lotuswurzel |
+| Obst | `obst` | 57 | Apfel, Avocado, Olive, Ringlotte |
 | Nüsse | `nuesse` | 14 | Walnuss, Erdnuss, Tigernuss |
-| Samen | `samen` | 14 | Sesam/Tahini, Chiasamen, Senfsaat |
-| Hülsenfrüchte | `huelsenfruechte` | 18 | Linsen, Tofu/Sojabohne, Käferbohne |
-| Getreide | `getreide` | 27 | Hafer, Weizen/Pasta, Quinoa |
-| Kräuter | `kraeuter` | 41 | Basilikum, Kamille, Gartenkresse |
-| Gewürze | `gewuerze` | 36 | Kurkuma, Zimt, Currypulver, Za'atar |
+| Samen | `samen` | 15 | Sesam/Tahini, Chiasamen, Senfsaat |
+| Hülsenfrüchte | `huelsenfruechte` | 19 | Linsen, Tofu/Sojabohne, Käferbohne |
+| Getreide | `getreide` | 22 | Hafer, Weizen/Pasta, Quinoa |
+| Kräuter | `kraeuter` | 40 | Basilikum, Kamille, Gartenkresse |
+| Gewürze | `gewuerze` | 32 | Kurkuma, Zimt, Currypulver, Za'atar |
 | Pilze | `pilze` | 12 | Champignon, Shiitake, Parasol |
 | Genussmittel | `genuss` | 4 | Kaffee, Kakao, Tee (Camellia), Mate |
 
-**Gesamt:** 286 Pflanzen (Stand: plants.ts)
+**Gesamt:** 276 Pflanzen (Stand: plants.ts)
 
 ## Datenstruktur
 

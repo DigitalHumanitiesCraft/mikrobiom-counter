@@ -4,7 +4,7 @@
 
 | Hash | Beschreibung | Datum |
 |------|-------------|-------|
-| `ba1d71d` | MVP: Voice + Manual Input, 284 Pflanzen, 4 Views | 2026-02-16 |
+| `ba1d71d` | MVP: Voice + Manual Input, 276 Pflanzen, 4 Views | 2026-02-16 |
 | `4f3dcf9` | Prototype Polish: 13 TODO-Items (Bugs, UX, Performance) | 2026-02-16 |
 | `76c6f25` | GitHub Pages Deployment via Actions | 2026-02-16 |
 | `c33e6dd` | Adjektiv-Stripping (Tier 5 Matching) | 2026-02-16 |
@@ -48,10 +48,27 @@
 - **Package Name:** `org.dhcraft.mikrobiomcounter`
 - **Knowledge Doc:** `knowledge/playstore.md`
 
-**Gefundene Probleme:**
-- PWA Icons (192px, 512px PNG) fehlen im Projekt — im Manifest referenziert aber nicht in `public/`
-- Version steht auf `0.0.0`
-- assetlinks.json muss ins `digitalhumanitiescraft.github.io` Root-Repo
+**Gefundene Probleme (alle behoben):**
+- ~~PWA Icons (192px, 512px PNG) fehlen im Projekt~~ → generiert
+- ~~Version steht auf `0.0.0`~~ → auf 1.0.0 gesetzt
+- ~~assetlinks.json muss ins `digitalhumanitiescraft.github.io` Root-Repo~~ → deployed
+
+## Play Store Submission (2026-03-05)
+
+**Status:** Alle Store-Assets erstellt, App in Play Console angelegt, AAB gebaut. Bereit für Release-Submission.
+
+**Erstellte Assets:**
+- Feature Graphic: `store/feature-graphic-1024x500.png` (via Canvas-Generator)
+- Phone Screenshots (5x Pixel 7): Home leer, Home mit Tracking, Voice Input, Liste, Einstellungen
+- 7" Tablet Screenshots (4x)
+- 10" Tablet Screenshots (4x iPad Air)
+- Store Listing Text: `store/listing.md`
+- Datenschutzerklärung: `store/datenschutz.md`
+
+**Nächste Schritte:**
+- AAB hochladen (`twa/app/build/outputs/bundle/release/app-release.aab`)
+- Release zur Überprüfung an Google senden
+- Nach Veröffentlichung: TWA Fullscreen + Web Speech API auf echtem Gerät testen
 
 ## Native App — Feature-Ideen
 

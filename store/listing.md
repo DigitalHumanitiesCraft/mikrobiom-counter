@@ -26,7 +26,7 @@ FUNKTIONEN
 
 • Spracherkennung: Sag einfach, was du gegessen hast. Die App erkennt Pflanzennamen aus natürlicher Sprache und trägt sie automatisch ein.
 
-• 284 Pflanzen: Eine kuratierte Datenbank mit deutschen Pflanzennamen, Aliasen und Kategorien — von Apfel bis Zucchini.
+• 276 Pflanzen: Eine kuratierte Datenbank mit deutschen Pflanzennamen, Aliasen und Kategorien — von Apfel bis Zucchini.
 
 • Fehlertolerante Suche: Tippfehler, fehlende Umlaute, Abkürzungen — die Suche findet trotzdem die richtige Pflanze.
 
@@ -61,7 +61,7 @@ Keine Registrierung. Keine Tracking-Dienste. Keine Werbung. Keine Datenübertrag
 
 1. Ziel: 30 Pflanzenarten pro Woche
 2. Spracheingabe — einfach sagen, was du isst
-3. 284 Pflanzen mit fehlertoleranter Suche
+3. 276 Pflanzen mit fehlertoleranter Suche
 4. Fortschritt nach Kategorien auf einen Blick
 5. Wochen-Statistiken und Streak-Zähler
 6. Komplett offline — alle Daten bleiben lokal
