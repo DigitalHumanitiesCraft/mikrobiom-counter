@@ -160,8 +160,8 @@ App Signing Key SHA-256: Play Console → Release → Setup → App signing → 
 18. ✅ Content Rating ausgefüllt (IARC)
 19. ✅ Zielgruppe: "Nicht für Kinder" deklariert
 20. ✅ Länder/Regionen ausgewählt
-21. ⬜ AAB hochladen → Production Release erstellen
-22. ⬜ Release zur Überprüfung an Google senden
+21. ✅ AAB hochladen → Production Release erstellt (2026-03-05)
+22. ✅ Release zur Überprüfung an Google gesendet (2026-03-05)
 23. ⬜ TWA Fullscreen verifizieren nach Veröffentlichung (kein URL-Bar?)
 24. ⬜ Web Speech API in TWA testen auf echtem Gerät
 
@@ -225,3 +225,83 @@ Pflicht für den Play Store. Muss enthalten:
 | Web Speech API in TWA | Frühzeitig auf echtem Gerät testen |
 | Health Claims im Listing | Listing-Texte neutral formulieren, keine Heilversprechen |
 | Health Apps Declaration | Formular korrekt ausfüllen, keine Health Connect Nutzung deklarieren |
+
+## TWA Build Workflow
+
+### Verzeichnisstruktur
+
+```
+twa/
+  twa-manifest.json                    — Bubblewrap-Konfiguration
+  mikrobiom-counter-upload.keystore    — Upload Key (NICHT im Git!)
+  app/build/outputs/bundle/release/
+    app-release.aab                    — Signiertes App Bundle für Play Store
+```
+
+### Erstmaliger Build (bereits erledigt)
+
+```bash
+npm i -g @bubblewrap/cli
+cd twa
+bubblewrap init --manifest https://dhcraft.org/mikrobiom-counter/manifest.webmanifest
+bubblewrap build
+```
+
+Bubblewrap fragt beim ersten `init` nach JDK und Android SDK — beides wird automatisch heruntergeladen wenn nicht vorhanden.
+
+### Update-Workflow: Nur PWA-Änderungen (kein Store-Update nötig)
+
+Die TWA ist ein dünner Wrapper um die PWA. Änderungen an der Web-App (Code, Pflanzenliste, UI) werden automatisch übernommen, sobald sie auf `dhcraft.org` deployed sind. Der Service Worker zeigt das Update-Banner.
+
+**Kein neuer AAB-Upload nötig** für:
+- Code-Änderungen (neue Features, Bugfixes)
+- Pflanzendatenbank-Updates
+- CSS/UI-Änderungen
+- Neue Pflanzen-Aliase
+
+### Update-Workflow: Store-Update nötig
+
+Ein neuer AAB-Upload ist nötig wenn sich der TWA-Wrapper selbst ändert:
+- Icon-Änderungen (Splash Screen, App Icon)
+- Package-Metadata (Name, Theme-Farben)
+- `twa-manifest.json`-Änderungen
+- Android SDK Target-Version erhöhen (Google verlangt das periodisch)
+
+**Schritte:**
+
+```bash
+cd twa
+
+# 1. twa-manifest.json anpassen:
+#    - appVersionCode um 1 erhöhen (Pflicht!)
+#    - appVersionName aktualisieren (z.B. "1.1.0")
+
+# 2. Neu bauen
+bubblewrap build
+# Fragt nach Keystore-Passwort
+
+# 3. AAB hochladen
+# Play Console → Release → Production → Neuen Release erstellen
+# app/build/outputs/bundle/release/app-release.aab hochladen
+# Versionshinweise eintragen
+# Release zur Überprüfung senden
+```
+
+**Wichtig:** `appVersionCode` in `twa-manifest.json` muss bei jedem Upload steigen. Google lehnt AABs mit gleichem oder niedrigerem versionCode ab.
+
+### Screenshots aktualisieren
+
+Bei größeren UI-Änderungen Screenshots neu machen:
+
+1. `npm run dev` (oder deployed Version)
+2. Chrome DevTools → Device Toolbar → Pixel 7 (Phone) / iPad Air (10" Tablet) / 7in Tablet
+3. Ctrl+Shift+P im DevTools-Panel → "Capture screenshot"
+4. Screenshots in `store/` ablegen und in Play Console hochladen
+
+### Lighthouse Check
+
+Vor jedem Store-Update Production-Version prüfen:
+- Chrome Inkognito → `https://dhcraft.org/mikrobiom-counter/`
+- DevTools → Lighthouse → Mobile → Analyze
+- Minimum: Performance 80+, Accessibility 90+
+- Letzter Check (2026-03-05): 100/92/100/100

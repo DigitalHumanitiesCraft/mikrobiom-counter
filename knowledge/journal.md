@@ -65,10 +65,11 @@
 - Store Listing Text: `store/listing.md`
 - Datenschutzerklärung: `store/datenschutz.md`
 
-**Nächste Schritte:**
-- AAB hochladen (`twa/app/build/outputs/bundle/release/app-release.aab`)
-- Release zur Überprüfung an Google senden
-- Nach Veröffentlichung: TWA Fullscreen + Web Speech API auf echtem Gerät testen
+**Release eingereicht:** AAB hochgeladen, Production Release zur Überprüfung an Google gesendet. Erwartete Review-Dauer: 3-7 Tage.
+
+**Nach Veröffentlichung testen:**
+- TWA Fullscreen verifizieren (kein URL-Bar?)
+- Web Speech API in TWA auf echtem Gerät testen
 
 ## Native App — Feature-Ideen
 
