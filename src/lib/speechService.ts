@@ -71,9 +71,3 @@ export function createRecognition(callbacks: SpeechCallbacks): SpeechRecognition
   return recognition;
 }
 
-// Extend window types for webkit prefix
-declare global {
-  interface Window {
-    webkitSpeechRecognition: typeof SpeechRecognition;
-  }
-}

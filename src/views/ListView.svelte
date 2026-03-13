@@ -81,7 +81,7 @@
 
 <div class="list-view">
   <div class="week-nav">
-    <button class="nav-btn" onclick={() => navigate(-1)}>
+    <button class="nav-btn" aria-label="Vorherige Woche" onclick={() => navigate(-1)}>
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
         <path d="M15 18l-6-6 6-6" />
       </svg>
@@ -92,7 +92,7 @@
         <span class="week-count">{uniqueCount} Pflanzen</span>
       {/if}
     </div>
-    <button class="nav-btn" onclick={() => navigate(1)} disabled={!canGoNext}>
+    <button class="nav-btn" aria-label="Nächste Woche" onclick={() => navigate(1)} disabled={!canGoNext}>
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
         <path d="M9 18l6-6-6-6" />
       </svg>

@@ -3,9 +3,22 @@ import { getISOWeekKey } from '../lib/weekUtils';
 import { getSettingsStore } from './settingsStore.svelte';
 import type { PlantEntry, WeekSummary } from '../data/types';
 
-const currentWeekKey = $state(getISOWeekKey());
+let currentWeekKey = $state(getISOWeekKey());
 let entries = $state<PlantEntry[]>([]);
 const { settings } = getSettingsStore();
+
+// Re-check week key when app becomes visible (handles Monday midnight crossover)
+if (typeof document !== 'undefined') {
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+      const newKey = getISOWeekKey();
+      if (newKey !== currentWeekKey) {
+        currentWeekKey = newKey;
+        loadEntries(currentWeekKey);
+      }
+    }
+  });
+}
 
 async function loadEntries(weekKey: string) {
   entries = await db.entries.where('weekKey').equals(weekKey).sortBy('timestamp');

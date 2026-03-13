@@ -27,9 +27,9 @@ export async function exportCSV(): Promise<void> {
     return [date, e.plantName, cat, e.weekKey, e.source].map(esc).join(',');
   });
   downloadFile(
-    [header, ...rows].join('\n'),
+    '\uFEFF' + [header, ...rows].join('\n'),
     `mikrobiom-export-${formatDate()}.csv`,
-    'text/csv'
+    'text/csv;charset=utf-8'
   );
 }
 

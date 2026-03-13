@@ -14,7 +14,7 @@
 
   type State = 'ready' | 'listening' | 'results' | 'error';
 
-  let state = $state<State>('ready');
+  let phase = $state<State>('ready');
   let interimText = $state('');
   let errorMessage = $state('');
   let matches = $state<MatchResult[]>([]);
@@ -24,17 +24,17 @@
   function startListening() {
     if (!isSpeechAvailable()) {
       errorMessage = 'Spracheingabe wird in diesem Browser nicht unterstützt.';
-      state = 'error';
+      phase = 'error';
       return;
     }
 
     if (!isOnline()) {
       errorMessage = 'Keine Internetverbindung. Spracheingabe benötigt Internet.';
-      state = 'error';
+      phase = 'error';
       return;
     }
 
-    state = 'listening';
+    phase = 'listening';
     interimText = '';
 
     recognition = createRecognition({
@@ -46,16 +46,16 @@
       },
       onError: (error) => {
         errorMessage = error;
-        state = 'error';
+        phase = 'error';
       },
       onEnd: () => {
-        if (state === 'listening') {
+        if (phase === 'listening') {
           if (interimText) {
             // Final result never arrived — use interim text
             processTranscript(interimText);
           } else {
             errorMessage = 'Nichts erkannt. Bitte nochmal versuchen.';
-            state = 'error';
+            phase = 'error';
           }
         }
       },
@@ -106,7 +106,7 @@
 
     matches = expanded;
     selected = selectedSet;
-    state = 'results';
+    phase = 'results';
   }
 
   function toggleMatch(index: number) {
@@ -166,13 +166,14 @@
   });
 </script>
 
+<svelte:window onkeydown={(e) => { if (e.key === 'Escape') onclose(); }} />
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <div class="modal-backdrop" onclick={onclose}>
   <!-- svelte-ignore a11y_no_static_element_interactions -->
   <!-- svelte-ignore a11y_click_events_have_key_events -->
   <div class="modal" onclick={(e) => e.stopPropagation()}>
-    {#if state === 'listening'}
+    {#if phase === 'listening'}
       <div class="listening">
         <div class="mic-pulse">
           <svg viewBox="0 0 24 24" width="48" height="48" fill="var(--color-primary)">
@@ -187,7 +188,7 @@
         <button class="btn-secondary" onclick={stopListening}>Stopp</button>
       </div>
 
-    {:else if state === 'results'}
+    {:else if phase === 'results'}
       <div class="results">
         <h3>Erkannte Pflanzen</h3>
         {#if matches.length === 0}
@@ -232,7 +233,7 @@
         </div>
       </div>
 
-    {:else if state === 'error'}
+    {:else if phase === 'error'}
       <div class="error-state">
         <p class="error-msg">{errorMessage}</p>
         <div class="actions">
