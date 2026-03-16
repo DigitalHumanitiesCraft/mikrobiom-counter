@@ -11,6 +11,7 @@
   let importMessage = $state('');
   let showDeleteConfirm = $state(false);
 
+  const version = __APP_VERSION__;
   const plantCount = PLANTS.length;
   const categoryCount = Object.keys(CATEGORY_LABELS).length;
 
@@ -135,7 +136,7 @@
           <li><strong>Gleiche Pflanzenart = 1 Punkt</strong>: Paprika, Chili, Jalapeño, Peperoni und Paprikapulver sind alles Capsicum annuum = 1 Punkt. Auch Fenchel + Fenchelsamen oder Koriander + Koriandersamen: gleiche Pflanze, egal welcher Teil</li>
           <li><strong>Tee-Falle</strong>: Grüner, schwarzer, weißer Tee = selbe Pflanze (Camellia sinensis) = 1 Punkt. Kräutertees zählen dagegen einzeln!</li>
           <li><strong>Mischungen = 1 Punkt</strong>: Currypulver, Kräuter der Provence, 7-Kräuter-Tee: eine Mischung = 1 Punkt, egal wie viele Zutaten. Die einzelnen Gewürze sind nur in Spuren enthalten. Einzeln verwenden = einzeln zählen</li>
-          <li><strong>Weißmehl &amp; weißer Reis = 0 Punkte</strong>: Semmel, Weißbrot, normale Pasta aus Auszugsmehl und weißer Reis (Basmati, Jasmin, Sushi) zählen nicht. Nur Vollkorn</li>
+          <li><strong>Weißmehl &amp; weißer Reis = 0 Punkte</strong>: Semmel, Weißbrot, normale Pasta aus Auszugsmehl und geschälter weißer Reis zählen nicht. Nur Vollkorn (auch Vollkorn-Basmati oder Vollkorn-Jasmin zählen!)</li>
           <li><strong>Fermentiert = Bonus</strong>: Sauerkraut zählt 1 Punkt (Weißkohl), ist aber durch Fermentation extra wertvoll fürs Mikrobiom. Gilt auch für Kimchi, Miso, Tempeh</li>
         </ul>
       </div>
@@ -167,39 +168,46 @@
     </label>
   </section>
 
-  <section class="setting-group">
-    <h3>Daten</h3>
-    <div class="button-group">
-      <button class="btn" onclick={exportJSON}>JSON exportieren</button>
-      <button class="btn" onclick={exportCSV}>CSV exportieren</button>
-    </div>
-
-    <label class="btn btn-file">
-      JSON importieren
-      <input type="file" accept=".json" onchange={handleImport} hidden />
-    </label>
-
-    {#if !showDeleteConfirm}
-      <button class="btn btn-danger" onclick={() => showDeleteConfirm = true}>
-        Alle Daten löschen
-      </button>
-    {:else}
-      <div class="confirm-delete">
-        <p>Wirklich alle Daten löschen?</p>
+  <section class="setting-group guide">
+    <details>
+      <summary class="guide-header">
+        <span class="guide-title">Daten</span>
+        <span class="guide-subtitle">Export, Import & Zurücksetzen</span>
+      </summary>
+      <div class="guide-content">
         <div class="button-group">
-          <button class="btn" onclick={() => showDeleteConfirm = false}>Abbrechen</button>
-          <button class="btn btn-danger" onclick={handleDelete}>Ja, löschen</button>
+          <button class="btn" onclick={exportJSON}>JSON exportieren</button>
+          <button class="btn" onclick={exportCSV}>CSV exportieren</button>
         </div>
-      </div>
-    {/if}
 
-    {#if importMessage}
-      <p class="import-msg">{importMessage}</p>
-    {/if}
+        <label class="btn btn-file">
+          JSON importieren
+          <input type="file" accept=".json" onchange={handleImport} hidden />
+        </label>
+
+        {#if !showDeleteConfirm}
+          <button class="btn btn-danger" onclick={() => showDeleteConfirm = true}>
+            Alle Daten löschen
+          </button>
+        {:else}
+          <div class="confirm-delete">
+            <p>Wirklich alle Daten löschen?</p>
+            <div class="button-group">
+              <button class="btn" onclick={() => showDeleteConfirm = false}>Abbrechen</button>
+              <button class="btn btn-danger" onclick={handleDelete}>Ja, löschen</button>
+            </div>
+          </div>
+        {/if}
+
+        {#if importMessage}
+          <p class="import-msg">{importMessage}</p>
+        {/if}
+      </div>
+    </details>
   </section>
 
   <section class="setting-group info">
-    <p>Mikrobiom Counter v1.0.0</p>
+    <p>Mikrobiom Counter v{version}</p>
     <p>Daten werden lokal auf deinem Gerät gespeichert.</p>
   </section>
 </div>

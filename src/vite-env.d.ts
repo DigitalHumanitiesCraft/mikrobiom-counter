@@ -2,6 +2,8 @@
 /// <reference types="vite/client" />
 /// <reference types="vite-plugin-pwa/client" />
 
+declare const __APP_VERSION__: string;
+
 // Web Speech API types (not included in default lib)
 interface SpeechRecognitionEvent extends Event {
   readonly resultIndex: number;

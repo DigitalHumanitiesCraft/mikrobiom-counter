@@ -36,7 +36,7 @@ npm run check        # Svelte + TypeScript Check
 
 ```
 src/
-  data/plants.ts         — 276 deutsche Pflanzen mit Aliasen in 10 Kategorien
+  data/plants.ts         — 290 deutsche Pflanzen mit Aliasen in 10 Kategorien
   data/plantIndex.ts     — Such-Index (Normalisierung, De-Umlaut, Stemming)
   data/db.ts             — Dexie IndexedDB Schema (v2: entries + settings)
   data/types.ts          — TypeScript Interfaces + PlantCategory Union
