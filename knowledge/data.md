@@ -4,18 +4,18 @@
 
 | Kategorie | ID | Einträge | Beispiele |
 |-----------|-----|---------|-----------|
-| Gemüse | `gemuese` | 61 | Tomate, Karotte, Nori, Lotuswurzel |
-| Obst | `obst` | 57 | Apfel, Avocado, Olive, Ringlotte |
+| Gemüse | `gemuese` | 65 | Tomate, Karotte, Nori, Lotuswurzel, Taro, Cima di Rapa |
+| Obst | `obst` | 60 | Apfel, Avocado, Olive, Ringlotte, Jackfrucht, Nashi-Birne, Yuzu |
 | Nüsse | `nuesse` | 14 | Walnuss, Erdnuss, Tigernuss |
 | Samen | `samen` | 15 | Sesam/Tahini, Chiasamen, Senfsaat |
 | Hülsenfrüchte | `huelsenfruechte` | 19 | Linsen, Tofu/Sojabohne, Käferbohne |
 | Getreide | `getreide` | 22 | Hafer, Weizen/Pasta, Quinoa |
-| Kräuter | `kraeuter` | 40 | Basilikum, Kamille, Gartenkresse |
+| Kräuter | `kraeuter` | 42 | Basilikum, Kamille, Gartenkresse, Shiso, Süßholz, Pandan |
 | Gewürze | `gewuerze` | 32 | Kurkuma, Zimt, Currypulver, Za'atar |
-| Pilze | `pilze` | 12 | Champignon, Shiitake, Parasol |
+| Pilze | `pilze` | 17 | Champignon, Shiitake, Parasol, Maitake, Shimeji, Igelstachelbart, Chaga |
 | Genussmittel | `genuss` | 4 | Kaffee, Kakao, Tee (Camellia), Mate |
 
-**Gesamt:** 276 Pflanzen (Stand: plants.ts)
+**Gesamt:** 290 Pflanzen (Stand: 2026-03-17)
 
 ## Datenstruktur
 

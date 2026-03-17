@@ -10,6 +10,9 @@
 | `c33e6dd` | Adjektiv-Stripping (Tier 5 Matching) | 2026-02-16 |
 | `9fcef2a` | PWA short_name fix | 2026-02-16 |
 | `1adef81` | Glossar, Knowledge-Docs, "Salat"-Alias | 2026-02-16 |
+| `139f9aa` | Type errors, week rollover, CSV encoding, a11y fixes | 2026-03-16 |
+| `884c9f1` | 290 Pflanzen, Data-UI versteckt, Play Store Fixes | 2026-03-17 |
+| `bc101fe` | CSV-Export entfernt, Buttons zu "Backup" umbenannt | 2026-03-17 |
 
 ## Tester-Feedback
 
@@ -70,6 +73,37 @@
 **Nach Veröffentlichung testen:**
 - TWA Fullscreen verifizieren (kein URL-Bar?)
 - Web Speech API in TWA auf echtem Gerät testen
+
+## Play Store Rejections + Fixes (2026-03-07 bis 2026-03-17)
+
+### Rejection 1: Name Mismatch (2026-03-07)
+- **Problem:** `short_name: "30 Pflanzen"` im PWA-Manifest vs. Store Name "Mikrobiom Counter"
+- **Fix:** `short_name` → `"Mikrobiom"` in vite.config.ts, TWA launcherName angepasst
+
+### Rejection 2: "App reagiert nicht" (2026-03-14)
+- **Problem:** Google-Reviewer klickte "JSON importieren" Button, der einen File-Picker öffnet — Reviewer wusste nicht was er tun soll → markierte als "App reagiert nicht"
+- **Fix:** Daten-Sektion in `<details>` Akkordeon versteckt
+- **Learning:** Google-Reviewer testen ALLE sichtbaren Buttons. Developer-facing UI muss versteckt sein.
+
+### Resubmission vorbereitet (2026-03-17)
+- versionCode 3 (vC2 war verbraucht durch abgelehnten Release)
+- CSV-Export entfernt (Developer-Feature, kein User-Nutzen)
+- Buttons umbenannt: "Backup exportieren/importieren" statt "JSON exportieren/importieren"
+- Pflanzendatenbank auf 290 Einträge erweitert (3 Runden Tester-Feedback)
+- ID-Fix: `blattkohl` → `palmkohl`
+
+### Tester-Feedback Runde 2 (Rich + Romy, 2026-03-16)
+- **Feature-Wünsche:** Challenge-Modus (#1), Social/Sharing (#2), Plant of the Day (#3)
+- **Daten-Feedback:** Fehlende Pflanzen (Taro, Nashi-Birne, Shiso etc.), fehlende Aliase (Rote Zwiebel, Sojamilch etc.)
+- **Bugs:** Gurkenkraut-Duplikat (Dill + Borretsch), Beifuß redundanter Alias
+- Alle Daten-Issues gefixt in 3 Runden
+
+### GitHub Issues angelegt
+- #1: Challenge-Modus (Tage bis 30 Pflanzen)
+- #2: Social/Sharing
+- #3: Plant of the Day
+- #8: Saison-Info pro Pflanze
+- #9: Guide durchsuchbar machen
 
 ## Native App — Feature-Ideen
 

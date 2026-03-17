@@ -13,6 +13,8 @@ Siehe `knowledge/` Ordner für die vollständige Dokumentation:
 - `knowledge/data.md` - Pflanzendatenbank: Struktur, Alias-Typen, Suchindex, bekannte Probleme
 - `knowledge/journal.md` - Tester-Feedback, Savepoints, Dead Ends, offene Fragen
 - `knowledge/playstore.md` - TWA-Setup, Signing, Digital Asset Links, Store Listing, Deployment-Checkliste
+- `knowledge/requirements.md` - User Stories, Epics, Erfolgskriterien
+- `knowledge/design.md` - UI/UX-Entscheidungen, Farbpalette, View-Architektur
 
 **Kurzfassung:** Jede Pflanzenart = 1 Punkt (wie Originalstudie, keine Viertelpunkte). Feste Liste mit Aliasen statt LLM. Ganze/minimal verarbeitete Pflanzen zählen, ultra-verarbeitete nicht.
 

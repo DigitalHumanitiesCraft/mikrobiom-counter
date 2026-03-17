@@ -38,7 +38,7 @@ Mikrobiom Counter PWA als Android App im Google Play Store veröffentlichen via 
 - [x] Lighthouse Audit: Score >= 80
 - [x] Offline-Funktionalität verifiziert
 - [x] Manifest vollständig (name, short_name, icons, start_url, display, scope)
-- [ ] Web Speech API in TWA testen (Mikrofon-Zugriff)
+- [x] Web Speech API in TWA testen (Mikrofon-Zugriff) — funktioniert auf Pixel 9a (2026-03-17)
 
 Base-Path `/mikrobiom-counter/` ist bereits korrekt gesetzt in `vite.config.ts`.
 
@@ -163,7 +163,7 @@ App Signing Key SHA-256: Play Console → Release → Setup → App signing → 
 21. ✅ AAB hochladen → Production Release erstellt (2026-03-05)
 22. ✅ Release zur Überprüfung an Google gesendet (2026-03-05)
 23. ⬜ TWA Fullscreen verifizieren nach Veröffentlichung (kein URL-Bar?)
-24. ⬜ Web Speech API in TWA testen auf echtem Gerät
+24. ✅ Web Speech API in TWA getestet auf Pixel 9a — funktioniert (2026-03-17)
 
 ### Timeline-Erwartung
 - Phase A: 1-2 Tage (größtenteils automatisierbar)
@@ -272,13 +272,20 @@ Ein neuer AAB-Upload ist nötig wenn sich der TWA-Wrapper selbst ändert:
 ```bash
 cd twa
 
-# 1. twa-manifest.json anpassen:
-#    - appVersionCode um 1 erhöhen (Pflicht!)
-#    - appVersionName aktualisieren (z.B. "1.1.0")
+# 1. versionCode in BEIDEN Dateien hochzählen:
+#    - twa-manifest.json: appVersionCode + appVersion
+#    - app/build.gradle: versionCode
+#    Optional: appVersionName / versionName aktualisieren
 
-# 2. Neu bauen
+# 2. Bauen (zwei Wege):
+
+# Weg A: bubblewrap CLI (interaktives Terminal nötig)
 bubblewrap build
-# Fragt nach Keystore-Passwort
+
+# Weg B: Gradle direkt (funktioniert in non-interactive Terminals)
+JAVA_HOME="$HOME/.bubblewrap/jdk/jdk-17.0.11+9" \
+ANDROID_HOME="$HOME/.bubblewrap/android_sdk" \
+./gradlew bundleRelease
 
 # 3. AAB hochladen
 # Play Console → Release → Production → Neuen Release erstellen
@@ -287,7 +294,11 @@ bubblewrap build
 # Release zur Überprüfung senden
 ```
 
-**Wichtig:** `appVersionCode` in `twa-manifest.json` muss bei jedem Upload steigen. Google lehnt AABs mit gleichem oder niedrigerem versionCode ab.
+**Wichtig:**
+- `appVersionCode` muss bei jedem Upload steigen. Google lehnt AABs mit gleichem oder niedrigerem versionCode ab.
+- Bei Gradle-direkt (Weg B) müssen `twa-manifest.json` UND `app/build.gradle` manuell synchron gehalten werden. Bubblewrap CLI macht das automatisch.
+- Bubblewrap's JDK/SDK liegt unter `~/.bubblewrap/` (wird beim ersten `bubblewrap init` heruntergeladen).
+- Das System-Java (JRE 1.8) reicht NICHT für Gradle 8.11.1 — daher JDK 17 aus bubblewrap nutzen.
 
 ### Screenshots aktualisieren
 
@@ -297,6 +308,27 @@ Bei größeren UI-Änderungen Screenshots neu machen:
 2. Chrome DevTools → Device Toolbar → Pixel 7 (Phone) / iPad Air (10" Tablet) / 7in Tablet
 3. Ctrl+Shift+P im DevTools-Panel → "Capture screenshot"
 4. Screenshots in `store/` ablegen und in Play Console hochladen
+
+## Rejection History
+
+| # | Datum | Grund | Fix |
+|---|-------|-------|-----|
+| 1 | 2026-03-07 | Name mismatch: `short_name: "30 Pflanzen"` vs Store Name "Mikrobiom Counter" | `short_name` → `"Mikrobiom"` in vite.config.ts + twa-manifest.json |
+| 2 | 2026-03-14 | "App reagiert nicht": Reviewer klickte "JSON importieren" Button | Daten-Sektion in `<details>` Akkordeon versteckt; Buttons umbenannt zu "Backup exportieren/importieren" |
+| 3 | pending | Resubmission mit versionCode 3 (vC2 war verbraucht) | CSV-Export entfernt, Pflanzendatenbank auf 290 erweitert |
+
+**Learnings:**
+- Google-Reviewer testen ALLE sichtbaren Buttons — auch wenn sie nur für Power-User gedacht sind
+- `short_name` muss zum Store Name passen (Google vergleicht Launcher-Name mit Store-Eintrag)
+- versionCode kann nicht wiederverwendet werden, auch wenn der vorherige Release abgelehnt wurde
+- Bestehende Bundles aus internem Test können via "Weiter"-Pfeil in Production übernommen werden
+
+## Aktueller Status (2026-03-17)
+
+- **versionCode:** 3 (in twa-manifest.json + app/build.gradle)
+- **versionName:** 1.0.0
+- **Pflanzendatenbank:** 290 Einträge in 10 Kategorien
+- **Nächster Schritt:** AAB mit vC3 hochladen, Production Release einreichen
 
 ### Lighthouse Check
 

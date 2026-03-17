@@ -11,7 +11,7 @@ Details zu Zählweise, was zählt/nicht zählt, und Design-Entscheidungen: siehe
 ## Features
 
 - **Spracheingabe** per Web Speech API (de-DE)
-- **Manuelle Eingabe** mit Search-as-you-type, 276 Pflanzen in 10 Kategorien
+- **Manuelle Eingabe** mit Search-as-you-type, 290 Pflanzen in 10 Kategorien
 - **Fuzzy Matching** für Plurale, Umlaute, regionale Varianten (Paradeiser, Erdäpfel, ...)
 - **Glossar** erklärt was zählt und was nicht, mit Verweis auf die Originalstudie
 - **Wöchentlicher Counter** mit Fortschrittsring
@@ -19,8 +19,9 @@ Details zu Zählweise, was zählt/nicht zählt, und Design-Entscheidungen: siehe
 - **Wochen-Navigation** in der Listenansicht
 - **Streak-Tracking** für aufeinanderfolgende Wochen mit 20+ Pflanzen
 - **Statistik** mit 8-Wochen-Verlauf, Durchschnitt, Streak
-- **Daten-Export** als JSON und CSV (mit Duplikat-Schutz beim Import)
+- **Daten-Backup** als JSON (mit Duplikat-Schutz beim Import)
 - **Installierbar** als PWA mit Offline-Support (außer Voice Input)
+- **Google Play Store** als TWA (Trusted Web Activity) via Bubblewrap
 
 ## Tech Stack
 
