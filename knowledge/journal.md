@@ -105,6 +105,23 @@
 - #8: Saison-Info pro Pflanze
 - #9: Guide durchsuchbar machen
 
+## 2026-03-17 08:00 – handoff
+
+**Summary:** Pflanzendatenbank auf 290 erweitert (3 Runden Tester-Feedback), Play Store Rejections #1 (Name) und #2 (JSON-Button) gefixt, CSV-Export entfernt, Daten-UI versteckt und umbenannt. Alle knowledge-Docs aktualisiert, requirements.md und design.md neu erstellt. TWA-AAB mit versionCode 3 gebaut.
+
+**Phase:** Implementation (Iteration). Alle 7 knowledge-Docs existieren und sind aktuell: science.md, decisions.md, data.md, journal.md, playstore.md, requirements.md, design.md.
+
+**Open issues:**
+- Play Store Review #3 steht aus — AAB (vC3) liegt lokal bereit, muss noch hochgeladen und eingereicht werden
+- TWA Fullscreen nach Veröffentlichung verifizieren (kein URL-Bar?) — erst nach Store-Approval testbar
+- Feature-Issues #1-3, #8-9 sind offen, Implementierung bewusst zurückgestellt bis Store-Release
+
+**Next steps:**
+1. AAB hochladen: `twa/app/build/outputs/bundle/release/app-release.aab` → Play Console → Production Release
+2. Versionshinweise eintragen, Release zur Überprüfung senden
+3. Nach Approval: TWA Fullscreen auf echtem Gerät verifizieren
+4. Dann: Feature-Issues priorisieren und implementieren (Challenge-Modus #1 als nächstes?)
+
 ## Native App — Feature-Ideen
 
 - **Share-Card**: Wochen-Ergebnis als visuelles Bild generieren (Fortschrittsring + Zahl + Pflanzenliste), über nativen Share Sheet teilen (WhatsApp, Instagram Story, etc.). Canvas-to-Image + Share Intent. Gamification-Effekt: "Schau mal, 32 Pflanzen diese Woche!"
