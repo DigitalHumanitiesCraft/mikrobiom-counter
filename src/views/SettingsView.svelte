@@ -1,6 +1,6 @@
 <script lang="ts">
   import { getSettingsStore } from '../stores/settingsStore.svelte';
-  import { exportJSON, exportCSV, importJSON, clearAllData } from '../lib/exportService';
+  import { exportJSON, importJSON, clearAllData } from '../lib/exportService';
   import { getWeekStore } from '../stores/weekStore.svelte';
   import { PLANTS } from '../data/plants';
   import { CATEGORY_LABELS, type PlantCategory } from '../data/types';
@@ -172,16 +172,13 @@
     <details>
       <summary class="guide-header">
         <span class="guide-title">Daten</span>
-        <span class="guide-subtitle">Export, Import & Zurücksetzen</span>
+        <span class="guide-subtitle">Backup & Zurücksetzen</span>
       </summary>
       <div class="guide-content">
-        <div class="button-group">
-          <button class="btn" onclick={exportJSON}>JSON exportieren</button>
-          <button class="btn" onclick={exportCSV}>CSV exportieren</button>
-        </div>
+        <button class="btn" onclick={exportJSON} style="margin-bottom: 0.5rem">Backup exportieren</button>
 
         <label class="btn btn-file">
-          JSON importieren
+          Backup importieren
           <input type="file" accept=".json" onchange={handleImport} hidden />
         </label>
 
