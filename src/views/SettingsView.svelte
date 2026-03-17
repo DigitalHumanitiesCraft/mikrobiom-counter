@@ -206,6 +206,10 @@
   <section class="setting-group info">
     <p>Mikrobiom Counter v{version}</p>
     <p>Daten werden lokal auf deinem Gerät gespeichert.</p>
+    <p class="info-links">
+      Ein Projekt von <a href="https://dhcraft.org" target="_blank" rel="noopener">DHCraft</a>
+      · <a href="https://github.com/DigitalHumanitiesCraft/mikrobiom-counter" target="_blank" rel="noopener">GitHub</a>
+    </p>
   </section>
 </div>
 
@@ -323,6 +327,17 @@
 
   .info p {
     margin-bottom: 0.25rem;
+  }
+
+  .info-links {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .info-links a {
+    color: var(--color-primary);
+    text-decoration: none;
   }
 
   /* Guide / Glossary */
