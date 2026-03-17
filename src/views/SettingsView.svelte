@@ -175,7 +175,7 @@
         <span class="guide-subtitle">Backup & Zurücksetzen</span>
       </summary>
       <div class="guide-content">
-        <button class="btn" onclick={exportJSON} style="margin-bottom: 0.5rem">Backup exportieren</button>
+        <button class="btn" onclick={exportJSON}>Backup exportieren</button>
 
         <label class="btn btn-file">
           Backup importieren
@@ -268,7 +268,9 @@
   }
 
   .btn {
-    flex: 1;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
     padding: 0.6rem 1rem;
     background: var(--color-background);
     border: 1px solid var(--color-border);
@@ -276,17 +278,21 @@
     font-size: 0.85rem;
     cursor: pointer;
     text-align: center;
+    margin-bottom: 0.5rem;
   }
 
   .btn-file {
-    display: block;
-    margin-bottom: 0.5rem;
     cursor: pointer;
   }
 
   .btn-danger {
     color: var(--color-danger);
     border-color: var(--color-danger);
+  }
+
+  .button-group .btn {
+    flex: 1;
+    margin-bottom: 0;
   }
 
   .confirm-delete {
