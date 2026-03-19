@@ -299,6 +299,9 @@ export const PLANTS: Plant[] = [
   { id: 'asafoetida', name: 'Asafoetida', category: 'gewuerze', aliases: ['Asafötida', 'Teufelsdreck', 'Hing'] },
   { id: 'annatto', name: 'Annatto', category: 'gewuerze', aliases: ['Anatto', 'Bixa', 'Achote'] },
   { id: 'berbere', name: 'Berbere', category: 'gewuerze', aliases: ['Berberé', 'Äthiopische Gewürzmischung'] },
+  { id: 'kraeuter-der-provence', name: 'Kräuter der Provence', category: 'gewuerze', aliases: ['Herbes de Provence', 'Provencekräuter', 'Kräuter der Provençe'] },
+  { id: 'fuenf-gewuerze-pulver', name: 'Fünf-Gewürze-Pulver', category: 'gewuerze', aliases: ['5-Gewürze-Pulver', 'Five Spice', 'Fünf Gewürze', 'Chinese Five Spice'] },
+  { id: 'baharat', name: 'Baharat', category: 'gewuerze', aliases: ['Arabische Gewürzmischung'] },
   { id: 'kapern', name: 'Kapern', category: 'gewuerze', aliases: ['Kapernäpfel', 'Kaper'] },
   { id: 'suessholz', name: 'Süßholz', category: 'gewuerze', aliases: ['Süßholzwurzel', 'Lakritze', 'Lakritz', 'Süssholz'] },
 
