@@ -114,6 +114,24 @@ App ist im Google Play Store veröffentlicht. versionCode 3, nach 2 Rejections u
 2. "App reagiert nicht": Google-Reviewer klickte "JSON importieren" → Fix: Daten-Section in `<details>` versteckt
 3. Approved.
 
+## 2026-03-19 18:00 – handoff
+
+**Summary:** App ist live im Play Store (vC3). Erste Nutzer-Feedbacks verarbeitet: TWA Origin Bar bei Firefox-Nutzern als Chrome-Limitierung identifiziert, D7 (Direktsaft zählt) als neue Design-Entscheidung eingeführt nach inkonsistentem Ballaststoff-Argument. Screenshots aktualisiert (Pixel 9, 7-Zoll, 10-Zoll). Promptotyping Check durchgeführt und alle Blocking/Should-Fix Issues behoben (Kategorie-Counts, D7-Citation, CLAUDE.md).
+
+**Phase:** Implementation (Post-Launch Iteration). 7 knowledge-Docs existieren und sind aktuell. App ist live.
+
+**Open issues:**
+- Feature-Issues #1 (Challenge-Modus), #2 (Social/Sharing), #3 (Plant of the Day), #8 (Saison-Info), #9 (Guide durchsuchbar) sind offen
+- TWA Origin Bar bei Firefox-Default-Nutzern — kein Fix, Chrome-Limitierung
+- Web Speech API nur auf Pixel 9a getestet — breitere Geräteabdeckung ausstehend
+- JSON-Export hat kein Schema/Version — bei DB-Änderungen könnten alte Backups brechen
+- Fuzzy Matching hat keine umfassende Test-Suite
+
+**Next steps:**
+1. Nutzer-Feedback sammeln und in journal.md dokumentieren
+2. Feature-Issues priorisieren (Challenge-Modus #1 als Kandidat für nächstes Feature?)
+3. Native Android App evaluieren (Hauptgrund: on-device Speech Recognition)
+
 ### Post-Launch Feedback (2026-03-19)
 - **TWA Origin Bar**: Tester mit Firefox als Default-Browser sieht Chrome Origin Bar. Ursache: TWA ist Chrome-only, Firefox fällt auf Custom Tab zurück. Kein Fix möglich, ist Android/Chrome-Limitierung.
 - **D7: Direktsaft zählt**: Erste Nutzer fragten "Zählt Zitronensaft?". Recherche ergab: Originalstudie schließt Säfte nicht aus, Ballaststoff-Argument ist inkonsistent mit Gewürze-Regelung. Entscheidung: 100% Direktsaft zählt, Industriesaft/Konzentrat nicht.
