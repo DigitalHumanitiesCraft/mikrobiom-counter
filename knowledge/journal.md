@@ -105,22 +105,22 @@
 - #8: Saison-Info pro Pflanze
 - #9: Guide durchsuchbar machen
 
+## 2026-03-19 – Play Store Live!
+
+App ist im Google Play Store veröffentlicht. versionCode 3, nach 2 Rejections und 3 Submissions approved.
+
+**Rejection-Historie:**
+1. Name-Mismatch: `short_name: "30 Pflanzen"` vs Store-Name "Mikrobiom Counter" → Fix: `"Mikrobiom"`
+2. "App reagiert nicht": Google-Reviewer klickte "JSON importieren" → Fix: Daten-Section in `<details>` versteckt
+3. Approved.
+
+### Post-Launch Feedback (2026-03-19)
+- **TWA Origin Bar**: Tester mit Firefox als Default-Browser sieht Chrome Origin Bar. Ursache: TWA ist Chrome-only, Firefox fällt auf Custom Tab zurück. Kein Fix möglich, ist Android/Chrome-Limitierung.
+- **D7: Direktsaft zählt**: Erste Nutzer fragten "Zählt Zitronensaft?". Recherche ergab: Originalstudie schließt Säfte nicht aus, Ballaststoff-Argument ist inkonsistent mit Gewürze-Regelung. Entscheidung: 100% Direktsaft zählt, Industriesaft/Konzentrat nicht.
+
 ## 2026-03-17 08:00 – handoff
 
 **Summary:** Pflanzendatenbank auf 290 erweitert (3 Runden Tester-Feedback), Play Store Rejections #1 (Name) und #2 (JSON-Button) gefixt, CSV-Export entfernt, Daten-UI versteckt und umbenannt. Alle knowledge-Docs aktualisiert, requirements.md und design.md neu erstellt. TWA-AAB mit versionCode 3 gebaut.
-
-**Phase:** Implementation (Iteration). Alle 7 knowledge-Docs existieren und sind aktuell: science.md, decisions.md, data.md, journal.md, playstore.md, requirements.md, design.md.
-
-**Open issues:**
-- Play Store Review #3 steht aus — AAB (vC3) liegt lokal bereit, muss noch hochgeladen und eingereicht werden
-- TWA Fullscreen nach Veröffentlichung verifizieren (kein URL-Bar?) — erst nach Store-Approval testbar
-- Feature-Issues #1-3, #8-9 sind offen, Implementierung bewusst zurückgestellt bis Store-Release
-
-**Next steps:**
-1. AAB hochladen: `twa/app/build/outputs/bundle/release/app-release.aab` → Play Console → Production Release
-2. Versionshinweise eintragen, Release zur Überprüfung senden
-3. Nach Approval: TWA Fullscreen auf echtem Gerät verifizieren
-4. Dann: Feature-Issues priorisieren und implementieren (Challenge-Modus #1 als nächstes?)
 
 ## Native App — Feature-Ideen
 

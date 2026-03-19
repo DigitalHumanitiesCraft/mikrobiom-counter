@@ -3,13 +3,13 @@
 ## Projekt
 
 Mikrobiom Counter: PWA zum Tracken von Pflanzenvielfalt pro Woche (Ziel: 30 Pflanzen).
-Im Google Play Store als TWA (Trusted Web Activity) via Bubblewrap. Danach native Android App geplant.
+Im Google Play Store als TWA (Trusted Web Activity) — live seit 2026-03-19. Danach native Android App geplant.
 
 ## Wissenschaftliche Grundlage + Design-Entscheidungen
 
 Siehe `knowledge/` Ordner für die vollständige Dokumentation:
 - `knowledge/science.md` - Originalstudie, Methodik, was die Daten sagen, spätere Interpretationen
-- `knowledge/decisions.md` - Alle Design-Entscheidungen (D1-D6) mit Begründung und Tradeoffs
+- `knowledge/decisions.md` - Alle Design-Entscheidungen (D1-D7) mit Begründung und Tradeoffs
 - `knowledge/data.md` - Pflanzendatenbank: Struktur, Alias-Typen, Suchindex, bekannte Probleme
 - `knowledge/journal.md` - Tester-Feedback, Savepoints, Dead Ends, offene Fragen
 - `knowledge/playstore.md` - TWA-Setup, Signing, Digital Asset Links, Store Listing, Deployment-Checkliste

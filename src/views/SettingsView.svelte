@@ -96,7 +96,7 @@
         <h3 class="guide-section-title">Was zählt nicht?</h3>
         <ul class="exclusion-list">
           <li>Ultra-verarbeitete Produkte (Chips, Schokoriegel, Fertiggerichte)</li>
-          <li>Industriesäfte, Nektar, Saft aus Konzentrat</li>
+          <li>Industriesäfte, Nektar, Saft aus Konzentrat — 100% Direktsaft zählt dagegen (Polyphenole bleiben erhalten, gleiche Logik wie Gewürze)</li>
           <li>Sirup, raffinierter Zucker</li>
           <li>Weißmehlprodukte (Weißbrot, normale Pasta aus Auszugsmehl, weißer Reis)</li>
           <li>Isolierte Extrakte (Öle, Nahrungsergänzungsmittel)</li>

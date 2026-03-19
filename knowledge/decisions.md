@@ -84,7 +84,7 @@ Alias-Typen:
 - Die Originalstudie (McDonald et al. 2018) schließt Säfte **nicht** aus — sie misst nur Pflanzen-Diversität
 - Der Saft-Ausschluss stammt von Rossi/Spector, nicht aus der Studie selbst
 - Das Ballaststoff-Argument ist **inkonsistent**: Gewürze haben in üblichen Mengen auch quasi null Ballaststoffe, zählen aber (D1)
-- Polyphenole bleiben im Direktsaft erhalten und sind nachweislich bioaktiv (Coutinho et al. 2024)
+- Polyphenole bleiben im Direktsaft erhalten und sind nachweislich bioaktiv ([Coutinho et al. 2024, Food Research International](https://pubmed.ncbi.nlm.nih.gov/38729714/) — 60 Tage OJ-Konsum moduliert Mikrobiota signifikant)
 - "Zählt Zitronensaft?" ist die häufigste Nutzerfrage — die Antwort muss intuitiv und konsistent sein
 
 **Tradeoff:** Könnte Nutzer ermutigen, Saft statt ganze Frucht zu konsumieren. Dagegen: der Guide empfiehlt weiterhin ganze Früchte als besser (Ballaststoffe). Die Entscheidung betrifft nur das Zählen, nicht eine Ernährungsempfehlung.
