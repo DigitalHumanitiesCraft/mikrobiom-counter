@@ -302,6 +302,13 @@ export const PLANTS: Plant[] = [
   { id: 'kraeuter-der-provence', name: 'Kräuter der Provence', category: 'gewuerze', aliases: ['Herbes de Provence', 'Provencekräuter', 'Kräuter der Provençe'] },
   { id: 'fuenf-gewuerze-pulver', name: 'Fünf-Gewürze-Pulver', category: 'gewuerze', aliases: ['5-Gewürze-Pulver', 'Five Spice', 'Fünf Gewürze', 'Chinese Five Spice'] },
   { id: 'baharat', name: 'Baharat', category: 'gewuerze', aliases: ['Arabische Gewürzmischung'] },
+  { id: 'gyrosgewuerz', name: 'Gyrosgewürz', category: 'gewuerze', aliases: ['Gyros Gewürz', 'Gyros-Gewürz', 'Dönergewürz', 'Kebabgewürz'] },
+  { id: 'grillgewuerz', name: 'Grillgewürz', category: 'gewuerze', aliases: ['Grill Gewürz', 'BBQ Gewürz', 'BBQ-Gewürz', 'Grillmarinade'] },
+  { id: 'lebkuchengewuerz', name: 'Lebkuchengewürz', category: 'gewuerze', aliases: ['Lebkuchen Gewürz', 'Pfefferkuchengewürz', 'Weihnachtsgewürz'] },
+  { id: 'gulaschgewuerz', name: 'Gulaschgewürz', category: 'gewuerze', aliases: ['Gulasch Gewürz', 'Gulasch-Gewürz'] },
+  { id: 'kartoffelgewuerz', name: 'Kartoffelgewürz', category: 'gewuerze', aliases: ['Kartoffel Gewürz', 'Pommesgewürz', 'Pommes Gewürz', 'Wedges Gewürz'] },
+  { id: 'pizzagewuerz', name: 'Pizzagewürz', category: 'gewuerze', aliases: ['Pizza Gewürz', 'Pizzakräuter', 'Italienische Kräuter', 'Italian Seasoning'] },
+  { id: 'brotgewuerz', name: 'Brotgewürz', category: 'gewuerze', aliases: ['Brot Gewürz', 'Brotbackgewürz'] },
   { id: 'kapern', name: 'Kapern', category: 'gewuerze', aliases: ['Kapernäpfel', 'Kaper'] },
   { id: 'suessholz', name: 'Süßholz', category: 'gewuerze', aliases: ['Süßholzwurzel', 'Lakritze', 'Lakritz', 'Süssholz'] },
 

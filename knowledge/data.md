@@ -11,11 +11,11 @@
 | Hülsenfrüchte | `huelsenfruechte` | 18 | Linsen, Tofu/Sojabohne, Käferbohne |
 | Getreide | `getreide` | 22 | Hafer, Weizen/Pasta, Quinoa |
 | Kräuter | `kraeuter` | 42 | Basilikum, Kamille, Gartenkresse, Shiso, Süßholz, Pandan |
-| Gewürze | `gewuerze` | 36 | Kurkuma, Zimt, Currypulver, Za'atar, Kräuter der Provence |
+| Gewürze | `gewuerze` | 43 | Kurkuma, Zimt, Currypulver, Za'atar, Kräuter der Provence, Gyros-, Grill-, Brotgewürz |
 | Pilze | `pilze` | 17 | Champignon, Shiitake, Parasol, Maitake, Shimeji, Igelstachelbart, Chaga |
 | Genussmittel | `genuss` | 4 | Kaffee, Kakao, Tee (Camellia), Mate |
 
-**Gesamt:** 293 Pflanzen (Stand: 2026-03-19)
+**Gesamt:** 300 Pflanzen (Stand: 2026-03-19)
 
 ## Datenstruktur
 
