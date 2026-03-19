@@ -32,7 +32,7 @@
     { cat: 'nuesse', tips: ['Jede Nuss einzeln: Walnuss, Cashew, Mandel ...', 'Kokosnuss zählt auch!', 'Muskatnuss (das Gewürz)'] },
     { cat: 'pilze', tips: ['Pilze sind keine Pflanzen, zählen aber trotzdem!', 'Champignon, Shiitake, Austernpilz, Pfifferling ...'] },
     { cat: 'gemuese', tips: ['Algen zählen: Nori (Sushi!), Wakame', 'Sprossen: Sojasprossen, Alfalfa', 'Salat = Kopfsalat, Feldsalat, Rucola ... jeder einzeln'] },
-    { cat: 'obst', tips: ['Oliven zählen', 'Avocado ist eine Frucht', 'Trockenfrüchte zählen (Datteln, Rosinen ...)'] },
+    { cat: 'obst', tips: ['Oliven zählen', 'Avocado ist eine Frucht', 'Trockenfrüchte zählen (Datteln, Rosinen ...)', '100% Direktsaft zählt (frisch gepresster OJ = Orange)'] },
   ];
 
   async function handleImport(e: Event) {
@@ -80,7 +80,7 @@
         </p>
 
         <h3 class="guide-section-title">Was zählt?</h3>
-        <p class="guide-rule">Ganze oder minimal verarbeitete Pflanzen. Frisch, getrocknet, tiefgekühlt, eingelegt oder fermentiert. Smoothies zählen (jede Zutat einzeln), Säfte nicht (Ballaststoffe fehlen).</p>
+        <p class="guide-rule">Ganze oder minimal verarbeitete Pflanzen. Frisch, getrocknet, tiefgekühlt, eingelegt oder fermentiert. Smoothies und 100% Direktsäfte zählen (jede Zutat/Frucht einzeln).</p>
 
         {#each tips as { cat, tips: items }}
           <div class="tip-category">
@@ -96,7 +96,7 @@
         <h3 class="guide-section-title">Was zählt nicht?</h3>
         <ul class="exclusion-list">
           <li>Ultra-verarbeitete Produkte (Chips, Schokoriegel, Fertiggerichte)</li>
-          <li>Säfte — auch 100% Direktsaft zählt nicht. Beim Entsaften gehen die Ballaststoffe verloren, die dein Mikrobiom braucht. Lieber die ganze Frucht essen.</li>
+          <li>Industriesäfte, Nektar, Saft aus Konzentrat</li>
           <li>Sirup, raffinierter Zucker</li>
           <li>Weißmehlprodukte (Weißbrot, normale Pasta aus Auszugsmehl, weißer Reis)</li>
           <li>Isolierte Extrakte (Öle, Nahrungsergänzungsmittel)</li>

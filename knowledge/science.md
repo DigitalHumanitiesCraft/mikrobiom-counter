@@ -69,9 +69,12 @@ Die Viertelpunkt-Systeme sind **nicht** Teil der Originalstudie. Sie sind pragma
 
 **Zählt nicht (Konsens):**
 - Ultra-verarbeitete Produkte (Chips, Schokoriegel, Fertiggerichte)
-- Fruchtsäfte (Fruchtfleisch entfernt)
+- Industriesäfte, Nektar, Saft aus Konzentrat
 - Weißmehlprodukte (stark raffiniert)
 - Isolierte Extrakte (Öle, Nahrungsergänzungsmittel)
+
+**Zählt (eigene Entscheidung D7):**
+- 100% Direktsaft (frisch gepresst oder 100% Direktsaft ohne Konzentrat) — die Pflanze wird konsumiert, Polyphenole bleiben erhalten. Die Originalstudie schließt Säfte nicht aus; der Ausschluss stammt von Rossi/Spector und basiert auf dem Ballaststoff-Argument, das aber auch Gewürze ausschließen würde (inkonsistent).
 
 **Grauzone:**
 - Gewürzmischungen: Zählt Curry als 1 oder als die einzelnen Gewürze?
