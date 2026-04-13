@@ -4,18 +4,24 @@
 
 | Kategorie | ID | Einträge | Beispiele |
 |-----------|-----|---------|-----------|
-| Gemüse | `gemuese` | 66 | Tomate, Karotte, Nori, Lotuswurzel, Taro, Cima di Rapa |
+| Gemüse | `gemuese` | 64 | Tomate, Karotte, Nori, Lotuswurzel, Taro, Cima di Rapa |
 | Obst | `obst` | 60 | Apfel, Avocado, Olive, Ringlotte, Jackfrucht, Nashi-Birne, Yuzu |
 | Nüsse | `nuesse` | 14 | Walnuss, Erdnuss, Tigernuss |
-| Samen | `samen` | 14 | Sesam/Tahini, Chiasamen, Senfsaat |
-| Hülsenfrüchte | `huelsenfruechte` | 18 | Linsen, Tofu/Sojabohne, Käferbohne |
-| Getreide | `getreide` | 22 | Hafer, Weizen/Pasta, Quinoa |
+| Samen | `samen` | 13 | Sesam/Tahini, Chiasamen, Senfsaat |
+| Hülsenfrüchte | `huelsenfruechte` | 17 | Linsen, Tofu/Edamame/Sojabohne, Käferbohne |
+| Getreide | `getreide` | 20 | Hafer, Weizen/Pasta/Bulgur/Couscous, Quinoa |
 | Kräuter | `kraeuter` | 42 | Basilikum, Kamille, Gartenkresse, Shiso, Süßholz, Pandan |
 | Gewürze | `gewuerze` | 43 | Kurkuma, Zimt, Currypulver, Za'atar, Kräuter der Provence, Gyros-, Grill-, Brotgewürz |
 | Pilze | `pilze` | 17 | Champignon, Shiitake, Parasol, Maitake, Shimeji, Igelstachelbart, Chaga |
 | Genussmittel | `genuss` | 4 | Kaffee, Kakao, Tee (Camellia), Mate |
 
-**Gesamt:** 300 Pflanzen (Stand: 2026-03-19)
+**Gesamt:** 294 Pflanzen (Stand: 2026-03-21)
+
+**Merge-Historie (2026-03-21, D1-Konsistenz):**
+- `bulgur` + `couscous` → Aliase in `weizen` (alles *Triticum durum*)
+- `edamame` → Alias in `sojabohnen` (*Glycine max*, nur unreif geerntet)
+- `sojasprossen` + `mungobohnensprossen` → Aliase in `mungobohnen` (Handelsware meist *Vigna radiata*)
+- `brokkoli-samen` + Brokkolisprossen → Aliase in `brokkoli` (*Brassica oleracea*)
 
 ## Datenstruktur
 
