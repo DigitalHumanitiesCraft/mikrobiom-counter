@@ -346,6 +346,16 @@ Bei größeren UI-Änderungen Screenshots neu machen:
 - versionCode kann nicht wiederverwendet werden, auch wenn der vorherige Release abgelehnt wurde
 - Bestehende Bundles aus internem Test können via "Weiter"-Pfeil in Production übernommen werden
 
+## Android Developer Verification (Frist 30.09.2026)
+
+Google verlangt, dass alle Play-Apps bis zum 30.09.2026 registriert sind. Apps mit Play App
+Signing wurden automatisch registriert, `org.dhcraft.mikrobiomcounter` gilt als registriert
+(geprüft 2026-08-07). Nichts zu tun.
+
+Nicht betroffen sind: die PWA auf dhcraft.org (kein Android-Paket) und der lokale Upload-Key
+(er signiert nur den Upload, nicht die ausgelieferte App). Nachzumelden wären nur Keys, mit
+denen APKs für Drittstores oder Direktdownload signiert werden. Gibt es hier nicht.
+
 ## Target-API-Pflicht (jährlich)
 
 Google verlangt, dass das Ziel-API-Level maximal ein Jahr hinter der neuesten Android-Version
