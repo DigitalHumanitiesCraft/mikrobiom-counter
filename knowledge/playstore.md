@@ -323,12 +323,38 @@ Bei größeren UI-Änderungen Screenshots neu machen:
 - versionCode kann nicht wiederverwendet werden, auch wenn der vorherige Release abgelehnt wurde
 - Bestehende Bundles aus internem Test können via "Weiter"-Pfeil in Production übernommen werden
 
-## Aktueller Status (2026-03-17)
+## Target-API-Pflicht (jährlich)
 
-- **versionCode:** 3 (in twa-manifest.json + app/build.gradle)
+Google verlangt, dass das Ziel-API-Level maximal ein Jahr hinter der neuesten Android-Version
+liegt. Wird die Frist verpasst, sind keine App-Updates mehr möglich (die veröffentlichte
+Version bleibt im Store, lässt sich aber nicht mehr aktualisieren).
+
+| Frist | Anforderung | Status |
+|-------|-------------|--------|
+| 31.08.2026 | targetSdk >= 36 (Android 16) | ✅ auf 36 gehoben, vC4 gebaut (2026-08-07) |
+
+Die Frist kommt jedes Jahr Ende August wieder. Zu prüfen sind dann `twa/app/build.gradle`
+(`targetSdkVersion`, ggf. `compileSdkVersion`) und ob die passende SDK-Platform unter
+`~/.bubblewrap/android_sdk/platforms/` liegt.
+
+### Verhaltensänderungen bei targetSdk 36 (vor Production testen)
+
+- **Edge-to-edge wird erzwungen:** Das Opt-out aus API 35 wirkt nicht mehr. Betrifft
+  Statusbar- und Navbar-Bereich rund um den Chrome-Content.
+- **Orientation-Lock wird auf großen Displays ignoriert:** `orientation: portrait` gilt auf
+  Tablets (sw600dp+) nicht mehr. Die PWA ist responsiv, sollte also unkritisch sein.
+
+Deshalb: erst internen Test-Track, auf echtem Gerät prüfen (Splash Screen, Statusbar,
+kein URL-Bar), dann Production.
+
+## Aktueller Status (2026-08-07)
+
+- **versionCode:** 4 (in twa-manifest.json + app/build.gradle)
 - **versionName:** 1.0.0
-- **Pflanzendatenbank:** 290 Einträge in 10 Kategorien
-- **Nächster Schritt:** AAB mit vC3 hochladen, Production Release einreichen
+- **targetSdk:** 36, **compileSdk:** 36, **minSdk:** 21
+- **Pflanzendatenbank:** 294 Einträge in 10 Kategorien
+- **AAB:** `twa/app/build/outputs/bundle/release/app-release.aab` (2026-08-07, via Gradle direkt)
+- **Nächster Schritt:** AAB mit vC4 in internen Test hochladen, auf Pixel 9a prüfen, dann Production
 
 ### Lighthouse Check
 
