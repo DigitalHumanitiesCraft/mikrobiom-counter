@@ -360,6 +360,12 @@ Die Frist kommt jedes Jahr Ende August wieder. Zu prüfen sind dann `twa/app/bui
 (`targetSdkVersion`, ggf. `compileSdkVersion`) und ob die passende SDK-Platform unter
 `~/.bubblewrap/android_sdk/platforms/` liegt.
 
+> **Falle beim nächsten Build:** `twa/build.gradle` nutzt in beiden Repository-Blöcken noch
+> `jcenter()`. JCenter ist abgeschaltet. Der vC4-Build (2026-08-07) lief nur durch, weil alle
+> Dependencies im lokalen Gradle-Cache lagen. Sobald etwas frisch aufgelöst werden muss
+> (neue Dependency-Version, neuer Rechner, geleerter Cache), bricht der Build. Fix: beide
+> `jcenter()` durch `mavenCentral()` ersetzen.
+
 ### Verhaltensänderungen bei targetSdk 36 (vor Production testen)
 
 - **Edge-to-edge wird erzwungen:** Das Opt-out aus API 35 wirkt nicht mehr. Betrifft
@@ -398,19 +404,12 @@ Keiner dieser Hinweise kann zu einer Ablehnung führen. Es sind statische Befund
 Bundle-Scan, keine Review-Kriterien. Die beiden bisherigen Ablehnungen kamen aus Metadaten
 und Bedienbarkeit.
 
-**Backlog für vC5** (nicht mit dem targetSdk-Release gebündelt, um die Testfläche vor der
-Frist klein zu halten):
-
-1. `androidbrowserhelper` von 2.6.2 auf 2.7.x heben. Adressiert Hinweis 1 funktional
-   (Edge-to-edge-Support für den Splash Screen, deprecated APIs nur noch auf Android <= 14).
-   Hinweis 2 verschwindet dabei vermutlich nicht ganz: der Scan liest DEX-Referenzen, und die
-   bleiben im Bytecode, solange `WebViewFallbackActivity` im Manifest steht, auch wenn sie bei
-   `fallbackType: customtabs` nie läuft.
-2. **Vorher zwingend:** In `twa/build.gradle` beide `jcenter()`-Einträge auf `mavenCentral()`
-   umstellen. JCenter ist abgeschaltet. vC4 baute noch aus dem lokalen Gradle-Cache, deshalb
-   fiel es nicht auf. Sobald eine neue Dependency-Version aufgelöst werden muss, bricht der Build.
-3. Optional mitnehmen: `shrinkResources true` und
-   `proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')`.
+**Entscheidung 2026-08-07: Es folgt kein Aufräum-Release.** Ein vC5 mit
+`androidbrowserhelper` 2.7.x wurde erwogen und verworfen. Das Update bringt Edge-to-edge-
+Support für den Splash Screen, also genau für den Teil, der aktuell funktioniert, und
+Hinweis 2 würde ohnehin bleiben (der Scan liest DEX-Referenzen, die im Bytecode stehen,
+solange `WebViewFallbackActivity` im Manifest registriert ist). Aufwand und Risiko ohne
+Gegenwert für die Nutzer.
 
 ### Predictive Back (ab targetSdk 36)
 
