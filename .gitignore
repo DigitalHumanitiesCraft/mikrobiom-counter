@@ -23,8 +23,14 @@ dist-ssr
 *.sln
 *.sw?
 
-# TWA build (contains keystore + passwords)
-twa/
+# TWA: Keystore, Passwoerter und Build-Artefakte bleiben lokal.
+# Versioniert werden nur die beiden Config-Dateien, die man nicht
+# rekonstruieren kann (twa/keystore.properties haelt die Passwoerter).
+twa/*
+!twa/app/
+twa/app/*
+!twa/app/build.gradle
+!twa/twa-manifest.json
 
 # Claude Code
 .claude/

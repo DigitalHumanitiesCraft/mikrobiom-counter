@@ -232,11 +232,34 @@ Pflicht für den Play Store. Muss enthalten:
 
 ```
 twa/
-  twa-manifest.json                    — Bubblewrap-Konfiguration
+  twa-manifest.json                    — Bubblewrap-Konfiguration (im Git)
+  keystore.properties                  — Keystore-Passwörter (NICHT im Git!)
   mikrobiom-counter-upload.keystore    — Upload Key (NICHT im Git!)
+  app/build.gradle                     — Gradle-Config, targetSdk/versionCode (im Git)
   app/build/outputs/bundle/release/
     app-release.aab                    — Signiertes App Bundle für Play Store
 ```
+
+### Was versioniert ist und was nicht
+
+Der `twa/`-Ordner ist bis auf zwei Dateien gitignored. Versioniert sind `twa-manifest.json`
+und `app/build.gradle`, weil dort targetSdk und versionCode stehen und beides bei einem
+Rechnerwechsel sonst verloren wäre. Alles andere (Keystore, Passwörter, Build-Artefakte,
+Gradle-Wrapper) bleibt lokal.
+
+Die Signing-Credentials liest `app/build.gradle` aus `twa/keystore.properties`:
+
+```properties
+storeFile=../mikrobiom-counter-upload.keystore
+keyAlias=upload
+storePassword=<passwort>
+keyPassword=<passwort>
+```
+
+Fehlt die Datei, greift ein Fallback auf die Umgebungsvariablen `TWA_STORE_PASSWORD` und
+`TWA_KEY_PASSWORD`. Auf einem neuen Rechner braucht es also drei Dinge aus dem Backup:
+den Keystore, die `keystore.properties` und den Gradle-Wrapper (letzteren erzeugt
+`bubblewrap init` neu).
 
 ### Erstmaliger Build (bereits erledigt)
 
