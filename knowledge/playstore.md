@@ -162,7 +162,7 @@ App Signing Key SHA-256: Play Console → Release → Setup → App signing → 
 20. ✅ Länder/Regionen ausgewählt
 21. ✅ AAB hochladen → Production Release erstellt (2026-03-05)
 22. ✅ Release zur Überprüfung an Google gesendet (2026-03-05)
-23. ⬜ TWA Fullscreen verifizieren nach Veröffentlichung (kein URL-Bar?)
+23. ✅ TWA Fullscreen verifiziert (kein URL-Bar), zuletzt mit vC4 im internen Test (2026-08-07)
 24. ✅ Web Speech API in TWA getestet auf Pixel 9a — funktioniert (2026-03-17)
 
 ### Timeline-Erwartung
@@ -354,7 +354,8 @@ Version bleibt im Store, lässt sich aber nicht mehr aktualisieren).
 
 | Frist | Anforderung | Status |
 |-------|-------------|--------|
-| 31.08.2026 | targetSdk >= 36 (Android 16) | ✅ auf 36 gehoben, vC4 gebaut (2026-08-07) |
+| 31.08.2026 | targetSdk >= 36 (Android 16) | ✅ erledigt: vC4 seit 07.08.2026 zu 100 % live |
+| ~31.08.2027 | vermutlich targetSdk >= 37 | offen |
 
 Die Frist kommt jedes Jahr Ende August wieder. Zu prüfen sind dann `twa/app/build.gradle`
 (`targetSdkVersion`, ggf. `compileSdkVersion`) und ob die passende SDK-Platform unter
@@ -424,9 +425,11 @@ schließt. Erwartung: sauberer Exit, kein hängender schwarzer Screen.
 - **targetSdk:** 36, **compileSdk:** 36, **minSdk:** 21
 - **Pflanzendatenbank:** 294 Einträge in 10 Kategorien
 - **AAB:** `twa/app/build/outputs/bundle/release/app-release.aab` (2026-08-07, via Gradle direkt)
-- **Interner Test:** vC4 hochgeladen und auf Gerät geprüft (2026-08-07), Darstellung in Ordnung
-- **Nächster Schritt:** vC4 aus dem internen Test nach Production übernehmen ("Weiter"-Pfeil),
-  Frist 31.08.2026. Der Warnhinweis in der Console verschwindet erst, wenn Production live ist.
+- **Production:** vC4 seit 07.08.2026 zu 100 % live. Ablauf war: internen Test-Track
+  fortsetzen (er war pausiert), AAB hochladen, auf Gerät prüfen, dann per "Weiter"-Pfeil
+  nach Production. Der Review dauerte nur wenige Stunden, deutlich kürzer als bei der
+  Erstveröffentlichung.
+- **Nächster Schritt:** keiner. Nächste Pflichtaufgabe ist das Target-API-Update 2027.
 
 ### Lighthouse Check
 
