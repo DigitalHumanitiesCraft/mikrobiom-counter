@@ -388,9 +388,35 @@ Zur Orientierung: Android 16 ignoriert den Portrait-Lock auf großen Displays oh
 Ihn zu entfernen würde nur auf Handys Rotation erlauben. Die Styles haben kein einziges
 `@media`-Query und arbeiten mit `max-width: 400px`-Containern, deshalb bleibt Portrait.
 
-**Backlog:** `androidbrowserhelper` von 2.6.2 auf 2.7.2 (Juni 2026) heben, als eigener
-Release vC5. Adressiert vermutlich die ersten beiden Hinweise. Bewusst nicht mit dem
-targetSdk-36-Release gebündelt, um die Testfläche vor der Frist klein zu halten.
+Bei vC4 kam ein vierter Hinweis dazu: R8-Optimierung (`shrinkResources` fehlt, keine
+expliziten `proguardFiles`, AGP < 9.0). Bei 1,34 MB Bundle-Größe und einer einzigen
+Dependency ist der Gewinn vernachlässigbar. AGP 9.0 wäre ein Sprung auf Gradle 9, gegen den
+der Bubblewrap-Build nicht getestet ist, und aktuelles Bubblewrap generiert selbst AGP 8.x.
+Bewusst ignoriert.
+
+Keiner dieser Hinweise kann zu einer Ablehnung führen. Es sind statische Befunde aus dem
+Bundle-Scan, keine Review-Kriterien. Die beiden bisherigen Ablehnungen kamen aus Metadaten
+und Bedienbarkeit.
+
+**Backlog für vC5** (nicht mit dem targetSdk-Release gebündelt, um die Testfläche vor der
+Frist klein zu halten):
+
+1. `androidbrowserhelper` von 2.6.2 auf 2.7.x heben. Adressiert Hinweis 1 funktional
+   (Edge-to-edge-Support für den Splash Screen, deprecated APIs nur noch auf Android <= 14).
+   Hinweis 2 verschwindet dabei vermutlich nicht ganz: der Scan liest DEX-Referenzen, und die
+   bleiben im Bytecode, solange `WebViewFallbackActivity` im Manifest steht, auch wenn sie bei
+   `fallbackType: customtabs` nie läuft.
+2. **Vorher zwingend:** In `twa/build.gradle` beide `jcenter()`-Einträge auf `mavenCentral()`
+   umstellen. JCenter ist abgeschaltet. vC4 baute noch aus dem lokalen Gradle-Cache, deshalb
+   fiel es nicht auf. Sobald eine neue Dependency-Version aufgelöst werden muss, bricht der Build.
+3. Optional mitnehmen: `shrinkResources true` und
+   `proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')`.
+
+### Predictive Back (ab targetSdk 36)
+
+Mit targetSdk 36 ist `enableOnBackInvokedCallback` standardmäßig aktiv. Beim Gerätetest
+gehört deshalb dazu: mit der Zurück-Geste aus der App heraus navigieren, bis sie sich
+schließt. Erwartung: sauberer Exit, kein hängender schwarzer Screen.
 
 ## Aktueller Status (2026-08-07)
 
