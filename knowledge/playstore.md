@@ -370,6 +370,28 @@ Die Frist kommt jedes Jahr Ende August wieder. Zu prüfen sind dann `twa/app/bui
 Deshalb: erst internen Test-Track, auf echtem Gerät prüfen (Splash Screen, Statusbar,
 kein URL-Bar), dann Production.
 
+**Getestet 2026-08-07:** vC4 im internen Test auf Gerät geprüft, Darstellung unauffällig.
+Der interne Test-Track war pausiert und musste erst fortgesetzt werden.
+
+### Play Console Empfehlungen (Stand vC3, nicht blockierend)
+
+Die Console meldet drei "empfohlene Aktionen". Keine davon verhindert eine
+Veröffentlichung, und zwei liegen nicht in unserem Code:
+
+| Hinweis | Ursache | Umgang |
+|---------|---------|--------|
+| Randlose Anzeige evtl. inkompatibel | androidbrowserhelper + Chrome-intern | Offen, Fix wäre Library-Update |
+| Veraltete APIs (`setStatusBarColor`, `setNavigationBarColor`) | androidbrowserhelper setzt die themeColor darüber, obfuskierte Chrome-Frames `J.N.d`/`J.N.e` | Offen, Fix wäre Library-Update |
+| Größen-/Ausrichtungs-Einschränkung in `LauncherActivity` | `orientation: portrait` in twa-manifest.json | **Bewusst beibehalten** |
+
+Zur Orientierung: Android 16 ignoriert den Portrait-Lock auf großen Displays ohnehin.
+Ihn zu entfernen würde nur auf Handys Rotation erlauben. Die Styles haben kein einziges
+`@media`-Query und arbeiten mit `max-width: 400px`-Containern, deshalb bleibt Portrait.
+
+**Backlog:** `androidbrowserhelper` von 2.6.2 auf 2.7.2 (Juni 2026) heben, als eigener
+Release vC5. Adressiert vermutlich die ersten beiden Hinweise. Bewusst nicht mit dem
+targetSdk-36-Release gebündelt, um die Testfläche vor der Frist klein zu halten.
+
 ## Aktueller Status (2026-08-07)
 
 - **versionCode:** 4 (in twa-manifest.json + app/build.gradle)
@@ -377,7 +399,9 @@ kein URL-Bar), dann Production.
 - **targetSdk:** 36, **compileSdk:** 36, **minSdk:** 21
 - **Pflanzendatenbank:** 294 Einträge in 10 Kategorien
 - **AAB:** `twa/app/build/outputs/bundle/release/app-release.aab` (2026-08-07, via Gradle direkt)
-- **Nächster Schritt:** AAB mit vC4 in internen Test hochladen, auf Pixel 9a prüfen, dann Production
+- **Interner Test:** vC4 hochgeladen und auf Gerät geprüft (2026-08-07), Darstellung in Ordnung
+- **Nächster Schritt:** vC4 aus dem internen Test nach Production übernehmen ("Weiter"-Pfeil),
+  Frist 31.08.2026. Der Warnhinweis in der Console verschwindet erst, wenn Production live ist.
 
 ### Lighthouse Check
 
